@@ -1,3 +1,5 @@
+#Simple program to show the Collatz Conjecture
+
 def collatz(number):
   if number % 2 == 0:
     number = number // 2
@@ -9,12 +11,12 @@ def collatz(number):
     return number
 
 print("Enter number:")
-x = int(input())
+input_number = int(input())
 counter = 0
-while x != 1:
-  x = collatz(x)
+while input_number != 1:
+  input_number = collatz(input_number)
   counter += 1
-  if x == 1:
+  if input_number == 1:
     print("Iterations: " + str(counter))
     break
   
