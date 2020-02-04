@@ -1,3 +1,5 @@
+
+#Simple program to convert a list to a string from How to Automate The Boring Stuff With Python
 spam = ['apples', 'bananas', 'tofu', 'cats']
 
 def string_comma(some_list):
@@ -5,7 +7,7 @@ def string_comma(some_list):
   x = ""
   for i in range(len(some_list)-1):
     x = x + spam[i] + ", "
-  x = x +"and " + spam[-1]
+  x = x +"and " + (str)spam[-1]
     
   return x
 
