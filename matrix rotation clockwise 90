@@ -8,13 +8,9 @@ grid = [['.','.','.','.','.','.'],
 ['.','0','0','.','.','.'],
 ['.','.','.','.','.','.']]
 
-answer = []
 
-for x in range(len(grid[0])):
-  R = ""
-  for y in range(len(grid)):
-    print(grid[y][x], end='')
-    R = R + str(grid[y][x])
-  answer.append(list(R))
-  print()    
+for x in range(len(grid[0])):    #establishes how many columns are in the matrix
+  for y in range(len(grid)):     #establishes how many rows are in the matrix
+    print(grid[y][x], end='')    #prints the new row made from the entire old column for 8 iterations
+  print()                        #creates the next row for 6 iterations
 
