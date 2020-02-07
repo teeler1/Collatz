@@ -1,0 +1,29 @@
+
+
+stuff = {"Rope": "17", "Daggers": "3", "Potions": "4", "Swords": "2"}
+
+dragon_loot = ['Green Hide', "Orange Eyes", "Zweihander", "Green Hide"]
+
+print("Inventory: ")
+def show_inventory(stuff):
+  total = 0
+  for k,v in stuff.items():
+    print(v,k)
+    total = total + int(v)
+  print("Total items in inventory: " + str(total))
+
+def add_to_inventory(current_inventory, new_inventory):
+    for i in range(len(new_inventory)):
+      if new_inventory[i] not in current_inventory:
+        current_inventory[new_inventory[i]] = 1
+      else:
+        current_inventory[new_inventory[i]] = current_inventory[new_inventory[i]] + 1
+    
+
+
+show_inventory(stuff)
+print("You kill a dragon. Your inventory now contains: ")
+add_to_inventory(stuff, dragon_loot)
+show_inventory(stuff)
+
+
