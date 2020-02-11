@@ -1,0 +1,69 @@
+import re
+
+phone=re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d') #using 0 or 1 possible matches
+print("Let's see if your number is valid. Enter your phone number.")
+number = input()
+if phone.search(number) is not None:
+  print("It looks like %s is a valid number"%(phone.search(number).group()))
+  print("The area code is %s"%(phone.search(number).group(1)))
+else:
+  print("It looks like %s is not a valid number"%(number))
+
+
+heroRegex = re.compile(r'Batman|Thor|Iron Man|Ivy') #using a pipe character to provide the first matxh
+print("Now, let's see if I like your hero")
+print("Tell me your favorite hero")
+name = input()
+if heroRegex.search(name) is not None:
+  print("Yes, I like %s"%(heroRegex.search(name).group()))
+else:
+  print(r"I don't like that choice")
+
+batRegex = re.compile(r'Bat(wo)*man') #using 0 or more matches  
+mo1 = batRegex.search("I like Batman")
+mo2 = batRegex.search("I like Batwoman")
+mo3 = batRegex.search("Batwowowowowowoman")  
+
+print(mo1.group(), mo2.group(), mo3.group())
+
+batRegex2 = re.compile(r'Bat(wo)+man') #using 1 or more matches  
+
+mo22 = batRegex2.search("I like Batwoman")
+mo32 = batRegex2.search("Batwowowowowowoman")  
+
+print(mo22.group(), mo32.group())
+
+haRegex = re.compile(r'(Ha){3,7}') #using a range of acceptable matches
+ho1 = haRegex.search("HaHaHaHa")
+ho2 = haRegex.search("HaHaHa")
+print(ho1.group(), ho2.group())
+
+
+#The lazy method takes the first acceptable range (HaHaHa) instead of longer versions
+print("Here is the lazy method of Python\'s regex")
+haRegexlazy = re.compile(r'(Ha){3,7}?')
+ho11 = haRegexlazy.search("HaHaHaHa")
+ho21 = haRegexlazy.search("HaHaHa")
+print(ho11.group(), ho21.group())
+
+#Custom character class
+customRegex = re.compile(r'[xo]{3,8}')
+example_custom = customRegex.search(r'I love you Katie. xoxoxoxoxox')
+print(example_custom.group())
+
+#negative custom character class
+ncustomRegex = re.compile(r'[^  Katie]')
+print(ncustomRegex.findall(r'I love you Katie. xoxoxoxoxox'))
+
+
+consonantRegex = re.compile(r'[^aeiouAEIOU]')
+print(consonantRegex.findall('RoboCop eats baby food. BABY FOOD.'))
+
+#using ^ and $ to match a string completely
+wholeStringIsNum = re.compile(r'^\d+$')
+wholeStringIsNum.search('12 34567890')
+
+#Substituting words
+name_censorRegex = re.compile(r'Knight \w+')
+censored_name = name_censorRegex.sub('CENSORED', "Knight Arthur has given his sword to Knight Henry")
+print(censored_name)
