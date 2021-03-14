@@ -7,7 +7,7 @@ def string_comma(some_list):
   x = ""
   for i in range(len(some_list)-1):
     x = x + spam[i] + ", "
-  x = x +"and " + (str)spam[-1]
+  x = x + "and " + str(spam[-1])
     
   return x
 
