@@ -2,28 +2,30 @@ import re, pyperclip
 
 # Program to scrape a clipboard for a phone number and email
 
-#regex for phone number
+# regex for phone number
 
 phoneRegex = re.compile(r'''(
-    (\d{3}|\(\d{3}\))?      #optional area code with or without ()
-    (\.|\s|-)?              #separator (space,hyphen, or -)
-    (\d{3})                 #mid 3 digits
-    (\.|\s|-)?              #separator (space,hyphen, or -)
-    (\d{4})                 #last 4 digits
+    (\d{3}|\(\d{3}\))?      # optional area code with or without ()
+    (\.|\s|-)?              # separator (space, hyphen, or -)
+    (\d{3})                 # mid 3 digits
+    (\.|\s|-)?              # separator (space, hyphen, or -)
+    (\d{4})                 # last 4 digits
     )''', re.VERBOSE)
 
 #regex for emails
 
 emailRegex = re.compile(r'''(
-    [a-zA-Z0-9._%+-]+       #username
-    @                       #@
-    [a-zA-Z0-9.-]+          #domain
-    (\.[a-zA-Z0-9]{2,4})    #com/co/edu/etc
+    [a-zA-Z0-9._%+-]+       # username
+    @                       # @
+    [a-zA-Z0-9.-]+          # domain
+    (\.[a-zA-Z0-9]{2,4})    # com/co/edu/etc
     )''', re.VERBOSE)
 
 text = str(pyperclip.paste())
 
 matches = []
+
+# Finding numbers and then putting them in a standard 555-555-5555 format
 
 for groups in phoneRegex.findall(text):
     phoneNumber = '-'.join(groups[1], groups[3], groups[5])
