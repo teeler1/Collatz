@@ -28,7 +28,7 @@ matches = []
 # Finding numbers and then putting them in a standard 555-555-5555 format
 
 for groups in phoneRegex.findall(text):
-    phoneNumber = '-'.join(groups[1], groups[3], groups[5])
+    phoneNumber = '-'.join([groups[1], groups[3], groups[5]])
     matches.append(phoneNumber)
 
 for groups in emailRegex.findall(text):
