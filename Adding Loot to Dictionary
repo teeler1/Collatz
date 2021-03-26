@@ -1,6 +1,6 @@
 
 
-stuff = {"Rope": "17", "Daggers": "3", "Potions": "4", "Swords": "2"}
+stuff = {"Rope": 17, "Daggers": 3, "Potions": 4, "Swords": 2}
 
 dragon_loot = ['Green Hide', "Orange Eyes", "Zweihander", "Green Hide"]
 
