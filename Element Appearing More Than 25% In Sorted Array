@@ -1,0 +1,7 @@
+# Leetcode problem 1287. Description: Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time.
+# Return that integer.
+
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        c = Counter(arr)
+        return max(c, key=c.get)
