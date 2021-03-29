@@ -1,0 +1,10 @@
+# Leetcode easy problem 1480
+
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
+        total = 0
+        sum = []
+        for i in nums:
+            total += i
+            sum.append(total)
+        return sum
