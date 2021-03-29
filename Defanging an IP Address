@@ -1,0 +1,12 @@
+# Leetcode problem 1108. Given a valid (IPv4) IP address, return a defanged version of that IP address.
+
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        new = ""
+        for letter in address:
+            if letter == ".":
+                new += '[.]'
+            else:
+                new += letter
+        return new
+            
