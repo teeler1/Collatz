@@ -1,0 +1,15 @@
+# leetcode #1672 easy 
+
+# Two loops are used to sum the innerlists then compare the sums
+
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        wealth = 0
+        sum = 0
+        for i in accounts:                      
+            for j in i:
+                sum += j
+            if sum > wealth:
+                wealth = sum
+            sum = 0
+        return wealth
